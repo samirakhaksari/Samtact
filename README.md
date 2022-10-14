@@ -1,5 +1,5 @@
 # Samtact
 ### Simple Available Manager for your contacts!
-
-This is a simple phone book manager for educational purpose.
+__Samtact__ will help you to simply organize and reach your contact info. It is a simple and user friendly app
+You may run it via ,exe file and **easily** save all your contacts.
 
