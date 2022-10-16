@@ -14,8 +14,8 @@ def load():
     if os.path.isfile('samtact.csv'):
         with open('samtact.csv', 'r') as sam_file:
             for line in sam_file:
-                name, phone_number, birth_year, city, email = line[:-1].split(',')
-                contact = Contact(name, phone_number, birth_year, city, email)
+                n, p, b, c, e= line[:-1].split(',')
+                contact = Contact(n, p, b, c, e)
                 contacts.append(contact)
         if len(contacts) > 0:
             contacts.pop(0)
@@ -40,7 +40,7 @@ def add_contact():
                 '\n\N{cityscape} Please enter the contact city of birth, to add to the contact list:\n')
             email = input(
                 '\n\N{envelope} Please enter the contact city of birth, to add to the contact list:\n')            
-            contact = [full_name, phone_number, birth_year, city, email]
+            contact = Contact(full_name, phone_number, birth_year, city, email)
             contacts.append(contact)
         elif option_list == '2':
             print('\n\N{memo} Contact list:\n', contacts)
@@ -59,14 +59,13 @@ def add_contact():
                         '\n1. Add a new contact \N{bust in silhouette} \N{mobile phone} \n2. See the list of all contacts \N{memo} \n3. Search\N{left-pointing magnifying glass}\n0. Exit \N{cross mark}\n\n''\N{fleur-de-lis} Enter the option you seek: ')
 print('saving...')
 
-load()
 
-add_contact()
+
 def save():
     with open('samtact.csv', 'w') as sam_file:
         sam_file.write('Name,Phone Number, Birth year, City, Email\n')
         for contact in contacts:
-            sam_file.write(contact[0] + ',' + contact[1] + '\n')
-save()
+            sam_file.write(f'{contact.name},{contact.phone_number}, {contact.birth_year}, {contact.city}, {contact.email}\n')
+
 
 
